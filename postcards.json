@@ -1,13 +1,13 @@
 {
-  "mindFile": "https://raw.githubusercontent.com/Misyip/ar-mind-adv-test/refs/heads/main/AR_targets.mind",
+  "mindFile": "https://raw.githubusercontent.com/Misyip/ar-mind-adv-test/refs/heads/main/AR_Targets.mind",
   "targets": [
     {
       "targetIndex": 0,
-      "imageSrc": "https://raw.githubusercontent.com/Misyip/ar-mind-adv-test/refs/heads/main/AF_2026.jpeg"
+      "imageSrc": "https://raw.githubusercontent.com/Misyip/ar-mind-adv-test/refs/heads/main/AF_2026.png"
     },
     {
       "targetIndex": 1,
-      "imageSrc": "https://raw.githubusercontent.com/Misyip/ar-mind-adv-test/refs/heads/main/LT-2026"
+      "imageSrc": "https://raw.githubusercontent.com/Misyip/ar-mind-adv-test/refs/heads/main/LT-2026.png"
     }
   ]
 }
