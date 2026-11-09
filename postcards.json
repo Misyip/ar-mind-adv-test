@@ -1,0 +1,13 @@
+{
+  "mindFile": "https://raw.githubusercontent.com/Misyip/Adatu-Fabrika-Vest/refs/heads/main/AR_targets.mind",
+  "targets": [
+    {
+      "targetIndex": 0,
+      "imageSrc": "https://raw.githubusercontent.com/Misyip/Adatu-Fabrika-Vest/refs/heads/main/AF_2026.jpeg"
+    },
+    {
+      "targetIndex": 1,
+      "imageSrc": "https://raw.githubusercontent.com/Misyip/Adatu-Fabrika-Vest/refs/heads/main/LT-2026"
+    }
+  ]
+}
