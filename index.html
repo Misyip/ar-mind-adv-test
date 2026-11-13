@@ -37,7 +37,7 @@
       const statusText = document.querySelector('#status');
 
       // 1. Fetch configuration FIRST before creating the AR scene
-      fetch('https://raw.githubusercontent.com/Misyip/ar-mind-adv-test/refs/heads/main/postcards.json')
+      fetch('./postcards.json')
         .then(response => response.json())
         .then(config => {
           if (!config.mindFile || !config.targets || config.targets.length === 0) {
