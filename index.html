@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <title>Klaipeda AR Postcard - Multi-Target</title>
+    <title>AR Postcards</title>
     <script src="./lib/aframe.min.js"></script>
     <script src="./lib/mindar-image-aframe.prod.js"></script>
     <style>
@@ -36,7 +36,7 @@
     <script>
       const statusText = document.querySelector('#status');
 
-      // 1. Fetch configuration FIRST before creating the AR scene
+      // 1. JSON Fetch
       fetch('./postcards.json')
         .then(response => response.json())
         .then(config => {
@@ -48,7 +48,7 @@
 
           statusText.innerText = "Loading AR engine...";
 
-          // 2. Dynamically create the A-Scene ONLY AFTER config is successfully loaded
+          // 2. Dynamic a-Scene creation after config is fully loaded
           const sceneEl = document.createElement('a-scene');
           sceneEl.setAttribute('mindar-image', `imageTargetSrc: ${config.mindFile}; filterMinCF: 0.001; filterBeta: 0.01; missTolerance: 5; warmupTolerance: 5; uiLoading: no; uiScanning: no;`);
           sceneEl.setAttribute('color-space', 'sRGB');
@@ -56,7 +56,7 @@
           sceneEl.setAttribute('vr-mode-ui', 'enabled: false');
           sceneEl.setAttribute('device-orientation-permission-ui', 'enabled: false');
 
-          // Add camera
+          // Camera functionality
           const cameraEl = document.createElement('a-camera');
           cameraEl.setAttribute('position', '0 0 0');
           cameraEl.setAttribute('look-controls', 'enabled: false');
@@ -64,7 +64,7 @@
 
           let activeTargetsCount = 0;
 
-          // 3. Loop through targets and build them dynamically
+          // 3. Target loop and build
           config.targets.forEach(targetConfig => {
             const targetEl = document.createElement('a-entity');
             targetEl.setAttribute('mindar-image-target', `targetIndex: ${targetConfig.targetIndex}`);
@@ -74,7 +74,7 @@
             imageEl.setAttribute('position', '0 0 0.01');
             imageEl.setAttribute('rotation', '0 0 0');
 
-            // Dynamically calculate aspect ratio for each image to prevent compression/shrinking
+            // Calculate target aspect ratio based on output image
             const tempImg = new Image();
             tempImg.crossOrigin = "anonymous";
             tempImg.src = targetConfig.imageSrc;
@@ -91,7 +91,7 @@
             targetEl.appendChild(imageEl);
             sceneEl.appendChild(targetEl);
 
-            // Target event listeners
+            // Event listeners
             targetEl.addEventListener('targetFound', () => {
               activeTargetsCount++;
               statusText.innerText = "Photo recognised!";
@@ -107,7 +107,7 @@
             });
           });
 
-          // Scene lifecycle listeners
+          // Lifecycle listeners
           sceneEl.addEventListener('arReady', () => {
             statusText.innerText = "Camera ready. Point it at a historic photo.";
           });
@@ -117,7 +117,7 @@
             statusText.style.background = "rgba(220, 20, 20, 0.9)";
           });
 
-          // Mount the fully configured scene to the document body
+          // A-scene mount
           document.body.appendChild(sceneEl);
         })
         .catch(error => {
