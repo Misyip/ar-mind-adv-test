@@ -1,13 +1,13 @@
 {
-  "mindFile": "https://raw.githubusercontent.com/Misyip/ar-mind-adv-test/refs/heads/main/AR_Targets.mind",
+  "mindFile": "./AR_Targets.mind",
   "targets": [
     {
       "targetIndex": 0,
-      "imageSrc": "https://raw.githubusercontent.com/Misyip/ar-mind-adv-test/refs/heads/main/AF_2026.png"
+      "imageSrc": "./modern/1.png"
     },
     {
       "targetIndex": 1,
-      "imageSrc": "https://raw.githubusercontent.com/Misyip/ar-mind-adv-test/refs/heads/main/LT-2026.png"
+      "imageSrc": "./modern/2.png"
     }
   ]
 }
