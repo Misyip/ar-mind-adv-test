@@ -3,19 +3,19 @@
   "targets": [
     {
       "targetIndex": 0,
-      "imageSrc": "./modern/1.png"
+      "imageSrc": "./modern/1.webp"
     },
     {
       "targetIndex": 1,
-      "imageSrc": "./modern/2.png"
+      "imageSrc": "./modern/2.webp"
     },
     {
       "targetIndex": 2,
-      "imageSrc": "./modern/3.jpg"
+      "imageSrc": "./modern/3.webp"
     },
     {
       "targetIndex": 3,
-      "imageSrc": "./modern/4.jpg"
+      "imageSrc": "./modern/4.webp"
     }
   ]
 }
