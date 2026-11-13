@@ -8,6 +8,14 @@
     {
       "targetIndex": 1,
       "imageSrc": "./modern/2.png"
+    },
+    {
+      "targetIndex": 2,
+      "imageSrc": "./modern/3.jpg"
+    },
+    {
+      "targetIndex": 3,
+      "imageSrc": "./modern/4.jpg"
     }
   ]
 }
