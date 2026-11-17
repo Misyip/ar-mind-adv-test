@@ -1,6 +1,6 @@
 ## **Instructions for updating modern-day images:**
-1. Log into the GitHub account with the provided credentials.
-2. Open the "Klaipeda AR Postcards" GitHub repository.
+1. Log into the GitHub account with the provided credentials, by going to github.com and clicking the "Sign in" button in the top-right corner.
+2. Open the "klaipeda-ar-postcards" GitHub repository.
 3. In the main repository screen, go into the folder called "modern".
 4. Find the modern-day image you want to update, by clicking through the images.
 5. Once you've found your desired image, MAKE SURE TO REMEMBER THE NUMBER OF THE IMAGE, The one that is in the name of the image!
