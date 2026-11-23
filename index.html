@@ -28,13 +28,86 @@
         pointer-events: none;
         text-align: center;
       }
+      #instructions-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.72);
+        z-index: 10001;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        box-sizing: border-box;
+        font-family: sans-serif;
+      }
+      #instructions-overlay.visible {
+        display: flex;
+      }
+      #instructions-modal {
+        background: #ffffff;
+        color: #1a1a1a;
+        max-width: 400px;
+        width: 100%;
+        border-radius: 16px;
+        padding: 24px;
+        box-sizing: border-box;
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+        text-align: center;
+      }
+      #instructions-modal h2 {
+        margin: 0 0 12px;
+        font-size: 20px;
+      }
+      #instructions-modal p {
+        margin: 0 0 20px;
+        font-size: 14px;
+        line-height: 1.5;
+        color: #444444;
+      }
+      #start-ar-btn {
+        background: #1a1a1a;
+        color: #ffffff;
+        border: none;
+        border-radius: 999px;
+        padding: 12px 24px;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+        width: 100%;
+        transition: background 0.2s ease, transform 0.15s ease;
+      }
+      #start-ar-btn:hover {
+        background: #333333;
+      }
+      #start-ar-btn:active {
+        transform: scale(0.98);
+      }
     </style>
   </head>
   <body>
     <div id="status">Loading configuration...</div>
+
+    <div id="instructions-overlay" role="dialog" aria-modal="true" aria-labelledby="instructions-title">
+      <div id="instructions-modal">
+        <h2 id="instructions-title">How to Use</h2>
+        <p>
+          Point your camera at a historic postcard or photo to reveal how the place looks today. Hold steady and adjust your distance if the view needs to lock in.
+        </p>
+        <button id="start-ar-btn" type="button">Got it, start exploring</button>
+      </div>
+    </div>
     
     <script>
       const statusText = document.querySelector('#status');
+      const instructionsOverlay = document.querySelector('#instructions-overlay');
+      const startArBtn = document.querySelector('#start-ar-btn');
+
+      let instructionsDismissed = false;
+
+      startArBtn.addEventListener('click', () => {
+        instructionsDismissed = true;
+        instructionsOverlay.classList.remove('visible');
+      });
 
       // 1. JSON Fetch
       fetch('./postcards.json')
@@ -110,9 +183,13 @@
           // Lifecycle listeners
           sceneEl.addEventListener('arReady', () => {
             statusText.innerText = "Camera ready. Point it at a historic photo.";
+            if (!instructionsDismissed) {
+              instructionsOverlay.classList.add('visible');
+            }
           });
 
           sceneEl.addEventListener('arError', () => {
+            instructionsOverlay.classList.remove('visible');
             statusText.innerText = "Failed to initialise camera.";
             statusText.style.background = "rgba(220, 20, 20, 0.9)";
           });
